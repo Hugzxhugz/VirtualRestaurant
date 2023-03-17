@@ -34,8 +34,8 @@ public class Restaurant
     
     public void ReleaseOrder(Order order,OrderHandler handler, Payment payment) 
     {
+        payment.ProcessPayment(this, payment);
         handler.HandleOrder(order);
-        payment.ProcessPayment(order, payment);
         ordersList.Remove(order);
         Console.WriteLine("Order released.");
     }

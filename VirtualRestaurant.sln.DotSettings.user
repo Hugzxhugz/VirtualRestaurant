@@ -1,8 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7070dee5_002D7717_002D4ca4_002Dadd8_002Dc61e76cacaaa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::6B807D63-F381-4186-B0FD-9B13AD03408B::net6.0::VirtualRestaurant_Test.UnitTest1.TestAddSandwichToMenuContainsTestSandwich&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::6B807D63-F381-4186-B0FD-9B13AD03408B::net6.0::VirtualRestaurant_Test.UnitTest1.TestMenuCreatorContainsSandwiches&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::6B807D63-F381-4186-B0FD-9B13AD03408B::net6.0::VirtualRestaurant_Test.UnitTest1.TestAddSandwichToRestaurantMenuContainsTestSandwich&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::6B807D63-F381-4186-B0FD-9B13AD03408B::net6.0::VirtualRestaurant_Test.UnitTest1&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

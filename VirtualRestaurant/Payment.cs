@@ -13,8 +13,54 @@ public class Payment
         this.ifCash = ifCash;
     }
 
-    public void ProcessPayment(Order order, Payment payment)
+    public void ProcessPayment(Restaurant restaurant, Payment payment)
     {
+        decimal totalAmount = 0.00m;
+
+        foreach (Order order in restaurant.ordersList)
+        {
+            totalAmount += order.amount * order.price;
+        }
         
+        
+        if (ifCash.Equals(true))
+        {
+            Console.WriteLine($"Total amount: {totalAmount}");
+            Console.Write("Cash payment: ");
+            decimal cashPayment = decimal.Parse(Console.ReadLine());
+
+            IfCashPayment(cashPayment, totalAmount);
+        }
+        else if (ifCash.Equals(false))
+        {
+            if (cardType == null || cardNumber == null)
+            {
+                Console.WriteLine("No credit card information found.");
+            }
+            else
+            {
+                Console.WriteLine($"Payment recieved. \nTotal amount: {totalAmount}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("We only accept cash or credit payments.");
+        }
+    }
+
+    public void IfCashPayment(decimal cashPayment, decimal totalAmount)
+    {
+        if (cashPayment > totalAmount)
+        {
+            Console.WriteLine($"Your change: {cashPayment - totalAmount}");
+        }
+        else if (cashPayment == totalAmount)
+        {
+            Console.WriteLine("Thank you for paying exact amount.");
+        }
+        else
+        {
+            Console.WriteLine("Insufficient payment.");
+        }
     }
 }
