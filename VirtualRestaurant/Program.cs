@@ -7,18 +7,29 @@ namespace VirtualRestaurant
     {
         static void Main(string[] args)
         {
-           
-            // Create a new restaurant
+            // simulating ordering 3 cheeseburgers and 2 grilled chicken
             Restaurant restaurant = new Restaurant();
 
-          
-
-            // Print the restaurant's menu
             Console.WriteLine("Restaurant Menu:");
             foreach (var menuItem in restaurant.menu)
             {
                 Console.WriteLine($"{menuItem.Key} - Price: {menuItem.Value}");
             }
+
+            Customer cust1 = new Customer("James", "12345", "james@email.com", "home", false, false);
+            
+            restaurant.TakeOrder(cust1, "Cheeseburger", 2);
+            restaurant.TakeOrder(cust1, "Grilled Chicken", 3);
+
+            Payment payment = new Payment("Visa", "54321", false);
+            OrderHandler handler = new OrderHandler();
+
+            foreach (Order order in restaurant.ordersList)
+            {
+                restaurant.ReleaseOrder(order, handler, payment);
+            }
+            
+            
         }
     }
 }

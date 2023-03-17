@@ -11,9 +11,9 @@ public class Restaurant
     {
         MenuCreator = new MenuCreator();
         this.menu = MenuCreator.SetMenuToRestaurant(this);
-        this.ordersList = ordersList;
-        
-        
+        this.ordersList = new List<Order>();
+
+
     }
 
 

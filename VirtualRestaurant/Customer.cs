@@ -3,13 +3,13 @@ namespace VirtualRestaurant;
 public class Customer
 {
     public string Name { get; set; }
-    public int PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; }
     public string Email { get; set; }
     public string DeliveryAddress { get; set; }
     public bool DineIn;
     public bool Deliver;
 
-    public Customer(string name, int phoneNumber, string email, string deliveryAddress, bool dineIn, bool deliver)
+    public Customer(string name, string phoneNumber, string email, string deliveryAddress, bool dineIn, bool deliver)
     {
         Name = name;
         PhoneNumber = phoneNumber;
