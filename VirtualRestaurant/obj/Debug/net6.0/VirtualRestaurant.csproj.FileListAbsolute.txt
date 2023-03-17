@@ -1,0 +1,15 @@
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\bin\Debug\net6.0\VirtualRestaurant.exe
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\bin\Debug\net6.0\VirtualRestaurant.deps.json
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\bin\Debug\net6.0\VirtualRestaurant.runtimeconfig.json
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\bin\Debug\net6.0\VirtualRestaurant.dll
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\bin\Debug\net6.0\VirtualRestaurant.pdb
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.csproj.AssemblyReference.cache
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.AssemblyInfoInputs.cache
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.AssemblyInfo.cs
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.csproj.CoreCompileInputs.cache
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.dll
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\refint\VirtualRestaurant.dll
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.pdb
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\VirtualRestaurant.genruntimeconfig.cache
+C:\Users\james\RiderProjects\VirtualRestaurant\VirtualRestaurant\obj\Debug\net6.0\ref\VirtualRestaurant.dll
