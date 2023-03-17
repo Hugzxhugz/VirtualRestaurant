@@ -28,10 +28,11 @@ public class Restaurant
         }
     }
     
-    public void ReleaseOrder(Order order, Payment payment) //needs to have orderhandler
+    public void ReleaseOrder(Order order,OrderHandler handler, Payment payment) 
     {
-        ordersList.Remove(order);
+        handler.HandleOrder(order);
         payment.ProcessPayment(order, payment);
+        ordersList.Remove(order);
         Console.WriteLine("Order released.");
     }
 }

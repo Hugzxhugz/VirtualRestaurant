@@ -3,8 +3,8 @@ using System.Collections.Specialized;
 namespace VirtualRestaurant;
 
 public class Order
-{ 
-    Customer customer;
+{
+    public Customer customer;
     public object dish;
     public decimal price { get; set; }
     public int amount { get; set; }
