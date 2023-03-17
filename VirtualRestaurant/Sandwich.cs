@@ -7,7 +7,7 @@ public abstract class Sandwich
     public List<String> addons { get; set; }
     public decimal price { get; set; }
     
-    public Sandwich(string name, int price)
+    public Sandwich(string name, decimal price)
     {
         this.name = name;
         this.description = description;
