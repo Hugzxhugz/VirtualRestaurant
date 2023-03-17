@@ -2,12 +2,12 @@
 
 public class MenuCreator
 {
-    public Dictionary<string, decimal> Menu { get; set; }
+    public Dictionary<string,(decimal,string)> Menu { get; set; }
 
 
     public MenuCreator()
     {
-        Menu = new Dictionary<string, decimal>();
+        Menu = new Dictionary<string,(decimal,string)>();
 
         Sandwich Cheeseburger = new Cheeseburger();
         Sandwich GrilledChicken = new GrilledChicken();
@@ -22,7 +22,7 @@ public class MenuCreator
     {
         if (!Menu.ContainsKey(sandwich.name))
         {
-            Menu.Add(sandwich.name, sandwich.price);
+            Menu.Add(sandwich.name, (sandwich.price, sandwich.description));
         }
         else
         {
@@ -31,7 +31,7 @@ public class MenuCreator
         
     }
 
-    public Dictionary<string, decimal> SetMenuToRestaurant(Restaurant restaurant)
+    public Dictionary<string, (decimal,string)> SetMenuToRestaurant(Restaurant restaurant)
     {
         restaurant.menu = Menu;
         return Menu;

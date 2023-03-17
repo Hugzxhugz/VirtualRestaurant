@@ -10,11 +10,7 @@ namespace VirtualRestaurant
             // simulating ordering 3 cheeseburgers and 2 grilled chicken
             Restaurant restaurant = new Restaurant();
 
-            Console.WriteLine("Restaurant Menu:");
-            foreach (var menuItem in restaurant.menu)
-            {
-                Console.WriteLine($"{menuItem.Key} - Price: {menuItem.Value}");
-            }
+            restaurant.PrintMenu();
 
             Customer cust1 = new Customer("James", "12345", "james@email.com", "home", false, false);
             
@@ -27,8 +23,6 @@ namespace VirtualRestaurant
 
             foreach (Order order in restaurant.ordersList)
             {
-                
-                
                 restaurant.ReleaseOrder(order, handler, payment);
             }
             

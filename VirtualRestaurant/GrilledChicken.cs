@@ -6,6 +6,6 @@ public class GrilledChicken : Sandwich
     {
        
         this.addons = addons;
-        this.description = "Marinated chicken fillet, grilled to perfection.";
+        this.description = "Lemon-herb and barbecue marinated chicken fillet, grilled to perfection.";
     }
 }
