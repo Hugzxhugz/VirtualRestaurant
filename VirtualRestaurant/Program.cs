@@ -23,9 +23,12 @@ namespace VirtualRestaurant
 
             Payment payment = new Payment("Visa", "54321", false);
             OrderHandler handler = new OrderHandler();
+            payment.ProcessPayment(restaurant, payment);
 
             foreach (Order order in restaurant.ordersList)
             {
+                
+                
                 restaurant.ReleaseOrder(order, handler, payment);
             }
             

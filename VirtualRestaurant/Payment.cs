@@ -39,7 +39,7 @@ public class Payment
             }
             else
             {
-                Console.WriteLine($"Payment recieved. \nTotal amount: {totalAmount}");
+                Console.WriteLine($"Total amount: {totalAmount} \nPayment from credit card recieved.");
             }
         }
         else

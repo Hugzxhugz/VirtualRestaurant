@@ -14,7 +14,7 @@ public class OrderHandler
         }
         else
         {
-            Console.WriteLine("Preparing order for take-away.");
+            Console.WriteLine("\nPreparing order for take-away.");
         }
         
     }

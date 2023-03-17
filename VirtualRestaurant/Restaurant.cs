@@ -34,9 +34,12 @@ public class Restaurant
     
     public void ReleaseOrder(Order order,OrderHandler handler, Payment payment) 
     {
-        payment.ProcessPayment(this, payment);
         handler.HandleOrder(order);
-        ordersList.Remove(order);
+        
+        Console.WriteLine("Customer's order:");
+        Console.WriteLine($"{order.dish} x {order.amount} (${order.amount * order.price})");
         Console.WriteLine("Order released.");
     }
+    
+    
 }
