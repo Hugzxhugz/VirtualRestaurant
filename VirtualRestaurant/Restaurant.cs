@@ -2,18 +2,22 @@
 
 public class Restaurant
 {
-    public Dictionary<object, decimal> menu { get; set; }
+    public Dictionary<string, decimal> menu { get; set; }
     public List<Order> ordersList { get; set; }
+    public MenuCreator MenuCreator;
     
     
     public Restaurant()
     {
-        this.menu = menu;
+        MenuCreator = new MenuCreator();
+        this.menu = MenuCreator.SetMenuToRestaurant(this);
         this.ordersList = ordersList;
+        
+        
     }
 
 
-    public void TakeOrder(Customer customer, object dish, int amount)
+    public void TakeOrder(Customer customer, string dish, int amount)
     {
         if (!menu.ContainsKey(dish))
         {

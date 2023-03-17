@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualRestaurant", "VirtualRestaurant\VirtualRestaurant.csproj", "{2498BBD5-B22B-476A-9301-A9B1825BCF60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualRestaurant Test", "VirtualRestaurant Test\VirtualRestaurant Test.csproj", "{6B807D63-F381-4186-B0FD-9B13AD03408B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{2498BBD5-B22B-476A-9301-A9B1825BCF60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2498BBD5-B22B-476A-9301-A9B1825BCF60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2498BBD5-B22B-476A-9301-A9B1825BCF60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B807D63-F381-4186-B0FD-9B13AD03408B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B807D63-F381-4186-B0FD-9B13AD03408B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B807D63-F381-4186-B0FD-9B13AD03408B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B807D63-F381-4186-B0FD-9B13AD03408B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

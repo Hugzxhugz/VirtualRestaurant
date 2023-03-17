@@ -2,10 +2,10 @@
 
 public class GrilledChicken : Sandwich
 {
-    public GrilledChicken(string name, int price) : base(name, price)
+    public GrilledChicken() : base("Grilled Chicken", 45.99m)
     {
-        this.name = "Grilled Chicken Sandwich";
-        this.price = 50.0m;
+        this.name = "Grilled Chicken";
+        this.price = 45.99m;
         this.addons = addons;
         this.description = "Marinated chicken fillet, grilled to perfection.";
     }

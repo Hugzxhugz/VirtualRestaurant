@@ -2,10 +2,10 @@
 
 public class Cheeseburger : Sandwich
 {
-    public Cheeseburger(string name, int price) : base(name, price)
+    public Cheeseburger() : base("Cheeseburger", 54.99m)
     {
         this.name = "Cheeseburger";
-        this.price = 50.0m;
+        this.price = 54.99m;
         this.addons = addons;
         this.description = "Our quarter-pounder, 100% pure-beef burger";
     }
