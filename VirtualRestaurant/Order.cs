@@ -1,16 +1,18 @@
+using System.Collections.Specialized;
+
 namespace VirtualRestaurant;
 
 public class Order
 { 
     Customer customer;
-    List<Dish> dishList;
+    public string dish;
     public double price { get; set; }
     public int amount { get; set; }
 
-    public Order(Customer customer, List<Dish> dishList, double price, int amount)
+    public Order(Customer customer, string dish, double price, int amount)
     {
         this.customer = customer;
-        this.dishList = dishList;
+        this.dish = dish;
         this.price = price;
         this.amount = amount;
     }
