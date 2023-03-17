@@ -2,24 +2,36 @@
 
 public class Restaurant
 {
-    public Dictionary<string, decimal> Menu { get; set; }
-    public List<String> ordersList { get; set; }
+    public Dictionary<object, decimal> menu { get; set; }
+    public List<Order> ordersList { get; set; }
     
     
-    public Restaurant(Dictionary<string, decimal> menu, List<string> ordersList)
+    public Restaurant()
     {
-        Menu = menu;
+        this.menu = menu;
         this.ordersList = ordersList;
     }
 
 
-    public void TakeOrder()
+    public void TakeOrder(Customer customer, object dish, int amount)
     {
-        
+        if (!menu.ContainsKey(dish))
+        {
+            Console.WriteLine("Dish is not available.");
+        }
+        else
+        {
+            decimal price = menu[dish];
+            Order order = new Order(customer, dish, price, amount);
+            ordersList.Add(order);
+            Console.WriteLine("Successfully taken order.");
+        }
     }
     
-    public void ReleaseOrder()
+    public void ReleaseOrder(Order order, Payment payment) //needs to have orderhandler
     {
-        
+        ordersList.Remove(order);
+        payment.ProcessPayment(order, payment);
+        Console.WriteLine("Order released.");
     }
 }

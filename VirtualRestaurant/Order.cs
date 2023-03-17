@@ -5,11 +5,11 @@ namespace VirtualRestaurant;
 public class Order
 { 
     Customer customer;
-    public string dish;
-    public double price { get; set; }
+    public object dish;
+    public decimal price { get; set; }
     public int amount { get; set; }
 
-    public Order(Customer customer, string dish, double price, int amount)
+    public Order(Customer customer, object dish, decimal price, int amount)
     {
         this.customer = customer;
         this.dish = dish;

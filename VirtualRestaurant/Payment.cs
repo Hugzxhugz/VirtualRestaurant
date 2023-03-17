@@ -13,7 +13,7 @@ public class Payment
         this.ifCash = ifCash;
     }
 
-    public void ProcessPayment()
+    public void ProcessPayment(Order order, Payment payment)
     {
         
     }
