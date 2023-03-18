@@ -14,10 +14,9 @@ public class MenuCreator
         
         AddSandwichToMenu(Cheeseburger);
         AddSandwichToMenu(GrilledChicken);
-
-
     }
 
+    
     public void AddSandwichToMenu(Sandwich sandwich)
     {
         if (!Menu.ContainsKey(sandwich.name))
@@ -28,7 +27,6 @@ public class MenuCreator
         {
             Console.WriteLine("Specified sandwich is already in the menu");
         }
-        
     }
 
     public Dictionary<string, (decimal,string)> SetMenuToRestaurant(Restaurant restaurant)
@@ -36,10 +34,4 @@ public class MenuCreator
         restaurant.menu = Menu;
         return Menu;
     }
-    
-    
-    
-    
-    
-    
 }
