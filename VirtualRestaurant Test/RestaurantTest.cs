@@ -127,4 +127,49 @@ public class RestaurantTest
 
         Assert.Equal(expectedOutput, consoleOutput.ToString());
     }
+
+    [Fact]
+    public void HandleOrder_ShouldWriteExpectedOutputToConsole_ForDineIn()
+    {
+        OrderHandler handler = new OrderHandler();
+        Customer customer = new Customer("James", "12345", "james@email.com", "home", true, false);
+        Order order = new Order(customer, "Burger", 54.99m, 1);
+        StringBuilder consoleOutput = new StringBuilder();
+        Console.SetOut(new StringWriter(consoleOutput));
+        var expectedOutput = "Order served to diner.\r\n";
+
+        handler.HandleOrder(order);
+
+        Assert.Equal(expectedOutput, consoleOutput.ToString());
+    }
+    
+    [Fact]
+    public void HandleOrder_ShouldWriteExpectedOutputToConsole_ForTakeAway()
+    {
+        OrderHandler handler = new OrderHandler();
+        Customer customer = new Customer("James", "12345", "james@email.com", "home", false, false);
+        Order order = new Order(customer, "Burger", 54.99m, 1);
+        StringBuilder consoleOutput = new StringBuilder();
+        Console.SetOut(new StringWriter(consoleOutput));
+        var expectedOutput = "\nPreparing order for take-away.\r\n";
+
+        handler.HandleOrder(order);
+
+        Assert.Equal(expectedOutput, consoleOutput.ToString());
+    }
+    
+    [Fact]
+    public void HandleOrder_ShouldWriteExpectedOutputToConsole_ForDelivery()
+    {
+        OrderHandler handler = new OrderHandler();
+        Customer customer = new Customer("James", "12345", "james@email.com", "home", false, true);
+        Order order = new Order(customer, "Burger", 54.99m, 1);
+        StringBuilder consoleOutput = new StringBuilder();
+        Console.SetOut(new StringWriter(consoleOutput));
+        var expectedOutput = $"Order will be now be delivered to {order.customer.DeliveryAddress}.\r\n";
+
+        handler.HandleOrder(order);
+
+        Assert.Equal(expectedOutput, consoleOutput.ToString());
+    }
 }

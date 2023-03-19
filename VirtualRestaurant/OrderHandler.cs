@@ -11,7 +11,7 @@ public class OrderHandler
         }
         else if (order.customer.Deliver.Equals(true) &&order.customer.DineIn.Equals(false))
         {
-            Console.WriteLine($"Order will be now be delivered to {order.customer.DeliveryAddress}");
+            Console.WriteLine($"Order will be now be delivered to {order.customer.DeliveryAddress}.");
         }
         else
         {
