@@ -31,11 +31,8 @@ public class RestaurantTest
     [Fact]
     public void TestAddSandwichToRestaurantMenuContainsTestSandwich()
     {
-        // Create a new restaurant
         Restaurant restaurant = new Restaurant();
-            
-        // Set testsandwich to restaurant menu
-
+         
         MenuCreator menuCreator = new MenuCreator();
         Sandwich testsandwich = new TestSandwich();
         menuCreator.AddSandwichToMenu(testsandwich);
@@ -116,7 +113,7 @@ public class RestaurantTest
     [Fact]
     public void PrintMenu_ShouldWriteExpectedOutputToConsole()
     {
-        var restaurant = new Restaurant();
+        Restaurant restaurant = new Restaurant();
         StringBuilder consoleOutput = new StringBuilder();
         Console.SetOut(new StringWriter(consoleOutput));
 
@@ -136,7 +133,7 @@ public class RestaurantTest
         Order order = new Order(customer, "Burger", 54.99m, 1);
         StringBuilder consoleOutput = new StringBuilder();
         Console.SetOut(new StringWriter(consoleOutput));
-        var expectedOutput = "Order served to diner.\r\n";
+        string expectedOutput = "Order served to diner.\r\n";
 
         handler.HandleOrder(order);
 
@@ -151,7 +148,7 @@ public class RestaurantTest
         Order order = new Order(customer, "Burger", 54.99m, 1);
         StringBuilder consoleOutput = new StringBuilder();
         Console.SetOut(new StringWriter(consoleOutput));
-        var expectedOutput = "\nPreparing order for take-away.\r\n";
+        string expectedOutput = "\nPreparing order for take-away.\r\n";
 
         handler.HandleOrder(order);
 
@@ -166,7 +163,7 @@ public class RestaurantTest
         Order order = new Order(customer, "Burger", 54.99m, 1);
         StringBuilder consoleOutput = new StringBuilder();
         Console.SetOut(new StringWriter(consoleOutput));
-        var expectedOutput = $"Order will be now be delivered to {order.customer.DeliveryAddress}.\r\n";
+        string expectedOutput = $"Order will be now be delivered to {order.customer.DeliveryAddress}.\r\n";
 
         handler.HandleOrder(order);
 
