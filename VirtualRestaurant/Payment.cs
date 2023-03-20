@@ -5,6 +5,7 @@ public class Payment
     public string cardType { get; set; }
     public string cardNumber { get; set; }
     public bool ifCash { get; set; }
+    public decimal totalAmount;
 
     public Payment(string cardType, string cardNumber, bool ifCash)
     {
@@ -15,8 +16,6 @@ public class Payment
 
     public void ProcessPayment(Restaurant restaurant, Payment payment)
     {
-        decimal totalAmount = 0.00m;
-
         foreach (Order order in restaurant.ordersList)
         {
             totalAmount += order.amount * order.price;

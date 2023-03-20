@@ -17,4 +17,9 @@ public class Order
         this.price = price;
         this.amount = amount;
     }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine($"Dish name: {dish}, Price: {price}, Amount: {amount}");
+    }
 }

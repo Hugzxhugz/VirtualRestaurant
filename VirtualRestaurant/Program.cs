@@ -9,6 +9,7 @@ namespace VirtualRestaurant
         {
             // simulating ordering 3 cheeseburgers and 2 grilled chicken
             Restaurant restaurant = new Restaurant();
+            PrintClass printClass = new PrintClass();
 
             restaurant.PrintMenu();
 
@@ -26,7 +27,8 @@ namespace VirtualRestaurant
                 restaurant.ReleaseOrder(order, handler, payment);
             }
             
-            
+            printClass.PrintReceipt(cust1);
+            printClass.PrintTotalSales();
         }
     }
 }
