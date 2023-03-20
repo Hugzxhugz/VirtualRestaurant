@@ -169,4 +169,47 @@ public class RestaurantTest
 
         Assert.Equal(expectedOutput, consoleOutput.ToString());
     }
+    
+    [Fact]
+    public void ProcessPayment_WhenPaymentIsCash()
+    {
+        Restaurant restaurant = new Restaurant();
+        Payment payment = new Payment("Visa", "54321", true);
+        StringReader consoleInput = new StringReader("100.00");
+        Console.SetIn(consoleInput);
+        var consoleOutput = new StringBuilder();
+        Console.SetOut(new StringWriter(consoleOutput));
+
+        payment.ProcessPayment(restaurant, payment);
+
+        Assert.Contains("Cash payment: ", consoleOutput.ToString());
+    }
+    
+    [Fact]
+    public void ProcessPayment_WhenPaymentTypeIsInvalid()
+    {
+        Restaurant restaurant = new Restaurant();
+        Payment payment = new Payment(null, "InvalidType", false);
+        StringBuilder consoleOutput = new StringBuilder();
+        Console.SetOut(new StringWriter(consoleOutput));
+
+        payment.ProcessPayment(restaurant, payment);
+
+        Assert.Contains("No credit card information found.", consoleOutput.ToString());
+    }
+
+    [Fact]
+    public void ProcessPayment_WhenCreditCardInformationIsMissing()
+    {
+        Restaurant restaurant = new Restaurant();
+        Payment payment = new Payment("Visa", null, false);
+        StringBuilder consoleOutput = new StringBuilder();
+        Console.SetOut(new StringWriter(consoleOutput));
+
+        payment.ProcessPayment(restaurant, payment);
+
+        Assert.Contains("No credit card information found.", consoleOutput.ToString());
+    }
+    
+    
 }
