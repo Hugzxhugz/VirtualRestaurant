@@ -2,7 +2,7 @@ namespace VirtualRestaurant;
 
 public class RestaurantMenu
 {
-    Restaurant restaurant;
+    Restaurant restaurant = new Restaurant();
     Customer customer;
     Payment payment;
     PrintClass printClass;
@@ -12,7 +12,7 @@ public class RestaurantMenu
     {
         var running = true;
         Console.WriteLine("Do you want to Login as customer or restaurant owner");
-        var role = Console.ReadLine().ToLower();
+        var role = Console.ReadLine().ToLower().ToLower();
         
         while (running)
         {
@@ -73,6 +73,11 @@ public class RestaurantMenu
                         break;
                 }
             }
+            else
+            {
+                Console.WriteLine("Invalid login. Please try again.");
+                MainMenu();
+            }
         }
     }
 
@@ -99,7 +104,7 @@ public class RestaurantMenu
             OrderHandler handler = new OrderHandler();
             foreach (var order in restaurant.ordersList)
             {
-                restaurant.ReleaseOrder(order, handler, payment);
+                restaurant.ReleaseOrder(customer, order, handler, payment);
             }
         }
     }
@@ -139,14 +144,14 @@ public class RestaurantMenu
         {
             restaurant.PrintMenu();
             Console.WriteLine("What do you want to order?");
-            var dish = Console.ReadLine();
+            var dish = Console.ReadLine().ToLower();
             Console.WriteLine($"How many {dish} do you want?");
             var amount = Int32.Parse(Console.ReadLine());
             restaurant.TakeOrder(customer, dish, amount);
         }
     }
 
-    private Customer FillCustomerInfo()
+    private Customer FillCustomerInfo() 
     {
         Console.WriteLine("What's your name? ");
         var name = Console.ReadLine();
@@ -156,8 +161,8 @@ public class RestaurantMenu
         var email = Console.ReadLine();
         Console.WriteLine("What's your delivery address? ");
         var deliveryAddress = Console.ReadLine();
-        Console.WriteLine("Do you want to dine in? Y/N ");
-        var output = Console.ReadLine();
+        Console.WriteLine("Do you want to dine in? Y/N "); // needs functionality
+        var output = Console.ReadLine(); //if n ask for takeout or deliver
         var dineIn = true;
         var delivery = false;
         if (output.ToLower() == "n")

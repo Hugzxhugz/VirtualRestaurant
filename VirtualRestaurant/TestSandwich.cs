@@ -2,7 +2,7 @@
 
 public class TestSandwich : Sandwich
 {
-    public TestSandwich() : base("Test Sandwich", 10.00m)
+    public TestSandwich() : base("test sandwich", 10.00m)
     {
         description = "This is a test sandwich.";
     }

@@ -10,8 +10,8 @@ public class RestaurantTest
     {
         MenuCreator menuCreator = new MenuCreator();
 
-        Assert.True(menuCreator.Menu.ContainsKey("Cheeseburger"));
-        Assert.True(menuCreator.Menu.ContainsKey("Grilled Chicken"));
+        Assert.True(menuCreator.Menu.ContainsKey("cheeseburger"));
+        Assert.True(menuCreator.Menu.ContainsKey("grilled chicken"));
     }
     
     [Fact]
@@ -20,12 +20,12 @@ public class RestaurantTest
         MenuCreator menuCreator = new MenuCreator();
         
 
-        Assert.True(menuCreator.Menu.ContainsKey("Cheeseburger"));
-        Assert.True(menuCreator.Menu.ContainsKey("Grilled Chicken"));
+        Assert.True(menuCreator.Menu.ContainsKey("cheeseburger"));
+        Assert.True(menuCreator.Menu.ContainsKey("grilled chicken"));
         
         Sandwich testsandwich = new TestSandwich();
         menuCreator.AddSandwichToMenu(testsandwich);
-        Assert.True(menuCreator.Menu.ContainsKey("Test Sandwich"));
+        Assert.True(menuCreator.Menu.ContainsKey("test sandwich"));
     }
     
     [Fact]
@@ -38,7 +38,7 @@ public class RestaurantTest
         menuCreator.AddSandwichToMenu(testsandwich);
         menuCreator.SetMenuToRestaurant(restaurant);
         
-        Assert.True(menuCreator.Menu.ContainsKey("Test Sandwich"));
+        Assert.True(menuCreator.Menu.ContainsKey("test sandwich"));
     }
 
     [Fact]
@@ -59,13 +59,13 @@ public class RestaurantTest
     {
         Restaurant restaurant = new Restaurant();
         Customer customer = new Customer("James", "12345", "james@email.com", "home", false, false);
-        string dish = "Cheeseburger";
+        string dish = "cheeseburger";
         int amount = 1;
 
         restaurant.TakeOrder(customer, dish, amount);
 
         Order order = restaurant.ordersList.First();
-        Assert.Equal(customer, order.customer);
+        Assert.Equal(customer, customer);
         Assert.Equal(dish, order.dish);
         Assert.Equal(54.99m, order.price);
         Assert.Equal(amount, order.amount);
@@ -78,15 +78,17 @@ public class RestaurantTest
         OrderHandler orderHandler = new OrderHandler();
         Customer customer = new Customer("James", "12345", "james@email.com", "home", false, false);
         Sandwich cheeseburger = new Cheeseburger();
-        string dish = "Cheeseburger";
+        string dish = "cheeseburger";
         int amount = 1;
-        Order order = new Order(customer, "Cheeseburger", cheeseburger.price, 1);
+        Order order = new Order("cheeseburger", cheeseburger.price, 1);
         Payment payment = new Payment("Visa", "54321", false);
+        
 
-        restaurant.ReleaseOrder(order,orderHandler, payment);
+        restaurant.ReleaseOrder(customer,order, orderHandler, payment);
 
         Assert.Contains(order, restaurant.dailyOrders);
         Assert.DoesNotContain(order, restaurant.ordersList);
+        Assert.Contains(order, customer.OrderList);
     }
 
     [Fact]
@@ -98,16 +100,17 @@ public class RestaurantTest
         Sandwich grilledChicken = new GrilledChicken();
         string dish = "Grilled Chicken";
         int amount = 1;
-        Order order = new Order(customer, dish, grilledChicken.price, 1);
+        Order order = new Order(dish, grilledChicken.price, 1);
         Payment payment = new Payment("Visa", "54321", false);
 
-        restaurant.ReleaseOrder(order,orderHandler, payment);
+        restaurant.ReleaseOrder(customer, order,orderHandler, payment);
 
         Order oldOrder = restaurant.dailyOrders.First();
-        Assert.Equal(customer, order.customer);
+        Assert.Equal(customer, customer);
         Assert.Equal(dish, order.dish);
         Assert.Equal(45.99m, order.price);
         Assert.Equal(amount, order.amount);
+        Assert.Contains(order, customer.OrderList);
     }
     
     [Fact]
@@ -118,7 +121,7 @@ public class RestaurantTest
         Console.SetOut(new StringWriter(consoleOutput));
 
         string expectedOutput =
-            "Restaurant Menu:\r\nCheeseburger - Price: 54.99 \n -- Our quarter-pounder, 100% pure-beef burger with smoked gouda cheese.\n\r\nGrilled Chicken - Price: 45.99 \n -- Lemon-herb and barbecue marinated chicken fillet, grilled to perfection.\n\r\n";
+            "Restaurant Menu:\r\ncheeseburger - Price: 54.99 \n -- Our quarter-pounder, 100% pure-beef burger with smoked gouda cheese.\n\r\ngrilled chicken - Price: 45.99 \n -- Lemon-herb and barbecue marinated chicken fillet, grilled to perfection.\n\r\n";
 
         restaurant.PrintMenu();
 
@@ -130,12 +133,12 @@ public class RestaurantTest
     {
         OrderHandler handler = new OrderHandler();
         Customer customer = new Customer("James", "12345", "james@email.com", "home", true, false);
-        Order order = new Order(customer, "Burger", 54.99m, 1);
+        Order order = new Order("Burger", 54.99m, 1);
         StringBuilder consoleOutput = new StringBuilder();
         Console.SetOut(new StringWriter(consoleOutput));
         string expectedOutput = "Order served to diner.\r\n";
 
-        handler.HandleOrder(order);
+        handler.HandleOrder(customer, order);
 
         Assert.Equal(expectedOutput, consoleOutput.ToString());
     }
@@ -145,12 +148,12 @@ public class RestaurantTest
     {
         OrderHandler handler = new OrderHandler();
         Customer customer = new Customer("James", "12345", "james@email.com", "home", false, false);
-        Order order = new Order(customer, "Burger", 54.99m, 1);
+        Order order = new Order("Burger", 54.99m, 1);
         StringBuilder consoleOutput = new StringBuilder();
         Console.SetOut(new StringWriter(consoleOutput));
         string expectedOutput = "\nPreparing order for take-away.\r\n";
 
-        handler.HandleOrder(order);
+        handler.HandleOrder(customer, order);
 
         Assert.Equal(expectedOutput, consoleOutput.ToString());
     }
@@ -160,12 +163,12 @@ public class RestaurantTest
     {
         OrderHandler handler = new OrderHandler();
         Customer customer = new Customer("James", "12345", "james@email.com", "home", false, true);
-        Order order = new Order(customer, "Burger", 54.99m, 1);
+        Order order = new Order("Burger", 54.99m, 1);
         StringBuilder consoleOutput = new StringBuilder();
         Console.SetOut(new StringWriter(consoleOutput));
-        string expectedOutput = $"Order will be now be delivered to {order.customer.DeliveryAddress}.\r\n";
+        string expectedOutput = $"Order will be now be delivered to {customer.DeliveryAddress}.\r\n";
 
-        handler.HandleOrder(order);
+        handler.HandleOrder(customer, order);
 
         Assert.Equal(expectedOutput, consoleOutput.ToString());
     }

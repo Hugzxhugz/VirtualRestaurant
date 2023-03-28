@@ -3,15 +3,15 @@
 public class OrderHandler
 {
     
-    public void HandleOrder(Order order)
+    public void HandleOrder(Customer customer, Order order)
     {
-        if (order.customer.DineIn.Equals(true) && order.customer.Deliver.Equals(false))
+        if (customer.DineIn.Equals(true) && customer.Deliver.Equals(false))
         {
             Console.WriteLine("Order served to diner.");
         }
-        else if (order.customer.Deliver.Equals(true) &&order.customer.DineIn.Equals(false))
+        else if (customer.Deliver.Equals(true) && customer.DineIn.Equals(false))
         {
-            Console.WriteLine($"Order will be now be delivered to {order.customer.DeliveryAddress}.");
+            Console.WriteLine($"Order will be now be delivered to {customer.DeliveryAddress}.");
         }
         else
         {

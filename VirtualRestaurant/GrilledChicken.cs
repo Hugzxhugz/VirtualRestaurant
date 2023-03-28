@@ -2,7 +2,7 @@
 
 public class GrilledChicken : Sandwich
 {
-    public GrilledChicken() : base("Grilled Chicken", 45.99m)
+    public GrilledChicken() : base("grilled chicken", 45.99m)
     {
        
         this.addons = addons;

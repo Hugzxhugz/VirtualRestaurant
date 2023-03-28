@@ -10,9 +10,9 @@ public class Order
     public int amount { get; set; }
 
     
-    public Order(Customer customer, object dish, decimal price, int amount)
+    public Order(object dish, decimal price, int amount)
     {
-        this.customer = customer;
+        
         this.dish = dish;
         this.price = price;
         this.amount = amount;
